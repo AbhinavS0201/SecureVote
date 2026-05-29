@@ -1,121 +1,164 @@
+# 🔐 SecureVote — Blockchain-Powered Digital Voting Platform
 
-# 🔐 SecureVote: Blockchain-Based Voting System
-
-A **tamper-proof digital voting system** built using a custom Java-based blockchain integrated with strong cryptographic techniques to ensure **security, transparency, and voter anonymity**.
-
----
-
-## 📌 Project Overview
-
-SecureVote is a decentralized-style voting system where each vote is securely recorded as a block in a blockchain. It ensures:
-
-* 🛡️ No vote tampering
-* 🔍 Full transparency
-* 👤 Complete voter anonymity
-* 🔐 Strong cryptographic protection
+SecureVote is a secure electronic voting platform that leverages blockchain principles and modern cryptographic techniques to ensure vote integrity, transparency, and voter privacy. The system records votes on an immutable blockchain-inspired ledger, preventing unauthorized modifications while maintaining a verifiable audit trail.
 
 ---
 
-## 🏗️ System Architecture
+## 🌐 Live Demo
 
+**Application:** https://secure-vote-peach.vercel.app/
+
+**Repository:** https://github.com/AbhinavS0201/SecureVote
+
+---
+
+## 🚀 Overview
+
+Traditional digital voting systems often face challenges related to trust, vote manipulation, and transparency. SecureVote addresses these concerns by implementing a blockchain-based architecture that provides:
+
+* Immutable vote records
+* End-to-end vote verification
+* Tamper detection mechanisms
+* Cryptographically secured authentication
+* Transparent vote auditing
+* Privacy-preserving voter identification
+
+The project demonstrates the practical application of blockchain concepts, cryptographic security, and distributed ledger principles within an electronic voting environment.
+
+---
+
+## ✨ Core Features
+
+### 🗳 Secure Voting System
+
+* Digital voter registration and authentication
+* One-voter-one-vote enforcement
+* Real-time vote submission and validation
+* Election result computation
+
+### ⛓ Blockchain Ledger
+
+* Custom blockchain implementation
+* SHA-256 block hashing
+* Hash-linked block structure
+* Immutable vote storage
+
+### 🔐 Advanced Security
+
+* PBKDF2 password hashing
+* RSA digital signatures
+* Secure session management
+* Cryptographic vote verification
+
+### 📊 Transparency & Integrity
+
+* Tamper detection
+* Vote auditability
+* Blockchain validation
+* Secure election records
+
+---
+
+## 🏗 System Architecture
+
+```text
+Frontend (HTML/CSS/JavaScript)
+            │
+            ▼
+      Java Servlets
+            │
+            ▼
+      Voting Services
+            │
+            ▼
+     Blockchain Ledger
+            │
+            ▼
+ Cryptographic Validation
 ```
-Client (HTML/JS)
-        ↓
-REST APIs (HTTP/JSON)
-        ↓
-Java Backend (Servlets)
-        ↓
-Blockchain Ledger (Custom Implementation)
+
+---
+
+## 🛠 Technology Stack
+
+### Backend
+
+* Java 11
+* Java Servlets
+* Maven
+* Apache Tomcat
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+### Security
+
+* SHA-256 Hashing
+* PBKDF2 Password Encryption
+* RSA-2048 Digital Signatures
+* Secure Session Tokens
+
+### Blockchain Components
+
+* Block Generation
+* Hash Chaining
+* Proof-of-Work Mechanism
+* Ledger Validation
+
+---
+
+## 📂 Project Structure
+
+```text
+SecureVote
+│
+├── AuthServlet.java
+├── VoteServlet.java
+├── Block.java
+├── Blockchain.java
+├── CryptoUtils.java
+├── VoteData.java
+├── VoterService.java
+├── VotingService.java
+├── index.html
+├── pom.xml
+└── README.md
 ```
 
 ---
 
-## 📁 Project Structure
+## 🔒 Security Implementation
 
-```
-Secure Blockchain-Based Voting System/
-│
-├── AuthServlet.java          # Handles authentication APIs
-├── VoteServlet.java          # Handles voting APIs
-│
-├── Block.java                # Blockchain block structure
-├── Blockchain.java           # Blockchain management
-├── VoteData.java             # Vote payload model
-│
-├── CryptoUtils.java          # Cryptographic functions
-│
-├── VoterService.java         # Voter registration & login
-├── VotingService.java        # Voting logic & results
-│
-├── securevote-v3.html        # Frontend UI
-├── pom.xml                   # Maven configuration
-└── README.md                 # Project documentation
-```
+### Password Protection
 
----
+* PBKDF2WithHmacSHA256
+* Salted password storage
+* High iteration count protection
 
-## ⚙️ Tech Stack
+### Digital Signatures
 
-* **Backend:** Java, Servlets
-* **Frontend:** HTML, CSS, JavaScript
-* **Build Tool:** Maven
-* **Server:** Apache Tomcat
-* **Security:**
+* RSA-2048 key pairs
+* Vote authenticity verification
+* Signature-based integrity checks
 
-  * SHA-256 Hashing
-  * PBKDF2 Password Hashing
-  * RSA Digital Signatures
-  * Proof-of-Work
+### Blockchain Security
+
+* SHA-256 block hashing
+* Linked block validation
+* Tamper-resistant vote records
+
+### Session Security
+
+* Secure token generation
+* Authentication controls
+* Login attempt protection
 
 ---
 
-## 🔐 Security Features
-
-### 🔑 Password Security
-
-* Uses **PBKDF2WithHmacSHA256**
-* 310,000 iterations + salt
-* Prevents brute-force attacks
-
----
-
-### 👤 Voter Anonymity
-
-* Voter IDs hashed using **SHA-256**
-* No real identity stored on blockchain
-
----
-
-### ✍️ Vote Authentication
-
-* Each vote is signed using **RSA-2048**
-* Ensures authenticity and prevents tampering
-
----
-
-### ⛓️ Blockchain Integrity
-
-* Each block linked using SHA-256 hashing
-* Any modification breaks the chain
-
----
-
-### ⛏️ Proof-of-Work
-
-* Blocks are mined using nonce
-* Prevents spam and unauthorized changes
-
----
-
-### 🔐 Session Security
-
-* Secure random tokens
-* HttpOnly cookies
-* Login attempt restrictions
-
----
-
-## 🚀 How to Run
+## 🚀 Local Setup
 
 ### Prerequisites
 
@@ -123,64 +166,40 @@ Secure Blockchain-Based Voting System/
 * Maven 3+
 * Apache Tomcat 9+
 
----
-
-### 🔧 Steps
+### Installation
 
 ```bash
-# Clone repository
 git clone https://github.com/AbhinavS0201/SecureVote.git
 
-# Navigate into project
 cd SecureVote
 
-# Build project
 mvn clean package
-
-# Deploy to Tomcat
-copy target/*.war %TOMCAT_HOME%/webapps/
-
-# Start server and open
-http://localhost:8080
 ```
 
----
-
-## 🔑 Default Admin Credentials
-
-```
-Voter ID: ADMIN001
-Password: Admin@1234
-```
+Deploy the generated WAR file to Apache Tomcat and start the server.
 
 ---
 
-## 📊 Features
+## 📈 Future Enhancements
 
-* ✔️ Secure voter registration & login
-* ✔️ One-person-one-vote enforcement
-* ✔️ Blockchain-based vote storage
-* ✔️ Real-time vote counting
-* ✔️ Tamper detection
-* ✔️ Cryptographically secure voting
-
----
-
-## 🧠 Key Concepts Used
-
-* Blockchain Data Structure
-* Cryptographic Hashing
-* Digital Signatures
-* Proof-of-Work Consensus
-* REST API Architecture
-
----
-
-## 🚀 Future Enhancements
-
-* Database integration (MySQL / MongoDB)
-* Multi-election support
-* Admin dashboard
-* Deployment on cloud
+* Multi-election management
+* Administrative dashboard
+* Cloud deployment support
+* Database integration
 * Mobile application
+* Advanced analytics
+* Voter verification workflows
 
+---
+
+## 👨‍💻 Author
+
+**Abhinav Rama**
+
+GitHub: https://github.com/AbhinavS0201
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
